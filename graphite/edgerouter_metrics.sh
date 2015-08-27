@@ -13,7 +13,6 @@ Host="EdgeRouter"
 HostIP="123.123.123.1"
 SNMP_Community="public"
 
-
 # snmpwalk the device
 interface=( $(snmpwalk -On -v 2c -c $SNMP_Community $HostIP 1.3.6.1.2.1.31.1.1.1.1 | awk '{print $4}'| tr -d '"') )
 ifHCOutOctets=( $(snmpwalk -On -v 2c -c $SNMP_Community $HostIP 1.3.6.1.2.1.31.1.1.1.10 | awk '{print $4}') )
